@@ -3,3 +3,4 @@ resource "aws_vpc" "name" {
     tags = {
       Name = "apple-vpc"
 }
+}
