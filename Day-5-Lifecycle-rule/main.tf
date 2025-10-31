@@ -7,12 +7,12 @@ resource "aws_instance" "name" {
 
 lifecycle {
   # Enables replacement by creating new before destroying old
-  create_before_destroy = true
+  #create_before_destroy = true
 
   # Ignores changes to tags to avoid unnecessary updates
-  ignore_changes        = [tags]
+  #ignore_changes        = [tags]
 
   # Prevents accidental deletion of the resource
-  prevent_destroy       = true
+ # prevent_destroy       = true
 }
 }
