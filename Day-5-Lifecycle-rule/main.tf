@@ -34,6 +34,7 @@ lifecycle {
   # prevent_destroy       = true
 
   # it means you can enable this option instance not terminated,
-  # if u can't terminate instnce until when you disable this option 
-}
+  #  you can't terminate instnce until when you disable this prevent destroy option 
+
+    }
 }
