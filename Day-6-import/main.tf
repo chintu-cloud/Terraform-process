@@ -30,7 +30,7 @@ resource "aws_instance" "name" {
 #      terraform import aws_instance.name.id (instance id)
 #     ex:  terraform import aws_instance.name i-068cc0f7be91416
 
-##  after run above command  automatically create terraform.tfstate.backup file, file inside full resouce available 
+##  after run above command  automatically download terraform.tfstate.backup file, file inside full resouce available 
 
 
 #  ---- terraform.tfstate.backup ----
