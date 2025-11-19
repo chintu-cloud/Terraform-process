@@ -5,7 +5,7 @@ module "vpc" {
   source   = "../ROOT-MODULE/VPC"
 aws_region = "us-east-1"
 vpc_cidr = "10.0.0.0/16"
-vpc_name = "prod-vpc"
+vpc_name = "projrct-vpc"
 public_subnet_1_cidr = "10.0.1.0/24"
 public_subnet_2_cidr = "10.0.2.0/24"
 private_subnet_1_cidr = "10.0.3.0/24"
@@ -16,7 +16,7 @@ private_subnet_5_cidr = "10.0.7.0/24"
 private_subnet_6_cidr = "10.0.8.0/24"
 availability_zone_1a = "us-east-1a"
 availability_zone_1b = "us-east-1b"
-vpc_id            = module.vpc.vpc_id
+ vpc_id = module.vpc.vpc_id
  allowed_ssh_cidr = ["0.0.0.0/0"]   
 }
 
@@ -26,7 +26,7 @@ vpc_id            = module.vpc.vpc_id
 module "bastion" {
   source = "../ROOT-MODULE/BASTION"
 aws_region = "us-east-1"
-ami = "ami-00ca32bbc84273381"
+ami = "ami-0fa3fe0fa7920f68e"
 instance_type = "t3.micro"
 key_name = "us-east-1"
 subnet_id = module.vpc.public_subnets[0]
@@ -129,5 +129,4 @@ db_password       = "chandan#123"
 db_subnet_1_id    = module.vpc.private_db_subnets[0]
 db_subnet_2_id    = module.vpc.private_db_subnets[1]
 rds_sg_id         = module.vpc.database_sg_id
-
 }
