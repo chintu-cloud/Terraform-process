@@ -1,4 +1,77 @@
 # ==== Module-Three-Tier ====
+Terraform AWS Multi-Tier Architecture — Full Project Documentation 📌 Overview
+
+This Terraform project deploys a production-ready 3-Tier AWS Architecture using modules:
+
+Tier-1 (Networking Layer)
+
+VPC
+
+2 Public Subnets
+
+2 Private Web Subnets
+
+2 Private App Subnets
+
+2 Private Database Subnets
+
+Internet Gateway
+
+NAT Gateways
+
+Route Tables & Associations
+
+Tier-2 (Security Layer)
+
+Security Groups for:
+
+Bastion Host
+
+Web Tier
+
+App Tier
+
+Database Tier
+
+Tier-3 (Compute + Database Layer)
+
+Bastion EC2 instance (Public Subnet)
+
+Web & App EC2 instances (Private Subnets)
+
+RDS MySQL (Private DB Subnets)
+
+Everything is modularized for easy reuse & scalability.
+
+🚀 Project Structure
+
+terraform/ │── main.tf │── variables.tf │── outputs.tf │── terraform.tfvars │── README.md │ ├── modules/ │ ├── vpc/ │ │ ├── main.tf │ │ ├── variables.tf │ │ ├── outputs.tf │ │ │ ├── security/ │ │ ├── main.tf │ │ ├── variables.tf │ │ ├── outputs.tf │ │ │ ├── ec2/ │ │ ├── main.tf │ │ ├── variables.tf │ │ ├── outputs.tf │ │ │ ├── rds/ │ ├── main.tf │ ├── variables.tf │ ├── outputs.tf
+
+               Internet
+                    |
+            ┌────────────────┐
+            │  Frontend ALB  │
+            └────────────────┘
+               /           \
+   Public Subnet 1      Public Subnet 2
+       |                      |
+ Frontend ASG (EC2)     Frontend ASG (EC2)
+       |
+       └──────── routes to Backend ALB ───────┐
+                                               |
+                                     ┌────────────────┐
+                                     │  Backend ALB   │
+                                     └────────────────┘
+                                      /             \
+                           Private App Subnet 1   Private App Subnet 2
+                              |                       |
+                       Backend ASG (EC2)        Backend ASG (EC2)
+                              |
+                              └────── connects to RDS ───────┐
+                                                               |
+                                                        ┌───────────────┐
+                                                        │   RDS MySQL   │
+                                                        └───────────────┘
 
 # 1.Create rds database into private subnets
 # 2.Create two private  servers in private subnets one is for frontend and another one is for backend
