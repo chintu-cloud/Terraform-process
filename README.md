@@ -10,7 +10,7 @@
 
 ---
 
-```markdown
+
 # Terraform Guide
 
 ## 📌 What is Terraform?
@@ -66,10 +66,6 @@ terraform destroy
 - Use **modules** for reusable infrastructure.
 - Always run `terraform plan` before `apply`.
 - Version-control your Terraform configs.
-```
 
 ---
 
-This way your README.md is not only **structured and recruiter-ready**, but also **visually appealing** with a diagram that explains Terraform’s workflow at a glance.  
-
-Would you like me to also design a **workflow diagram for Terraform commands (init → plan → apply → destroy)** so beginners can follow the lifecycle step by step?
